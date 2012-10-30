@@ -1,16 +1,17 @@
-# revision 26775
+# revision 27848
 # category Package
 # catalog-ctan undef
-# catalog-date undef
-# catalog-license undef
-# catalog-version undef
+# catalog-date 2012-09-27 15:23:21 +0200
+# catalog-license other-free
+# catalog-version 1.11
 Name:		texlive-uptex
-Version:	20120810
+Epoch:		1
+Version:	1.11
 Release:	1
-Summary:	TeXLive uptex package
+Summary:	Unicode version of pTeX
 Group:		Publishing
 URL:		http://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
+License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.tar.xz
 Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.source.tar.xz
@@ -28,7 +29,13 @@ Requires:	texlive-japanese-otf
 Requires:	texlive-uptex.bin
 
 %description
-TeXLive uptex package.
+upTeX is an extension of pTeX, using UTF-8 input and producing
+UTF-8 output. It was originally designed to improve support for
+Japanese, but is also useful for documents in Chinese and
+Korean. It can process Chinese simplified, Chinese traditional,
+Japanese, and Korean simultaneously, and can also process
+original LaTeX with \inputenc{utf8} and Babel
+(Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
 
 %post
     %{_sbindir}/texlive.post
@@ -181,6 +188,7 @@ TeXLive uptex package.
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-uptex.mp
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-utf8-incl.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-utf8.mp
+%doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-docinfo.txt
 %doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-jis.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-utf8.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/box-euc.eps

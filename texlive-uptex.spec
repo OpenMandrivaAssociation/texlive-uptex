@@ -1,17 +1,16 @@
-# revision 27848
+# revision 26775
 # category Package
 # catalog-ctan undef
-# catalog-date 2012-09-27 15:23:21 +0200
-# catalog-license other-free
-# catalog-version 1.11
+# catalog-date undef
+# catalog-license undef
+# catalog-version undef
 Name:		texlive-uptex
-Epoch:		1
-Version:	1.11
+Version:	20120810
 Release:	1
-Summary:	Unicode version of pTeX
+Summary:	TeXLive uptex package
 Group:		Publishing
 URL:		http://tug.org/texlive
-License:	OTHER-FREE
+License:	http://www.tug.org/texlive/LICENSE.TL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.tar.xz
 Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.source.tar.xz
@@ -29,13 +28,7 @@ Requires:	texlive-japanese-otf
 Requires:	texlive-uptex.bin
 
 %description
-upTeX is an extension of pTeX, using UTF-8 input and producing
-UTF-8 output. It was originally designed to improve support for
-Japanese, but is also useful for documents in Chinese and
-Korean. It can process Chinese simplified, Chinese traditional,
-Japanese, and Korean simultaneously, and can also process
-original LaTeX with \inputenc{utf8} and Babel
-(Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
+TeXLive uptex package.
 
 %post
     %{_sbindir}/texlive.post
@@ -188,7 +181,6 @@ original LaTeX with \inputenc{utf8} and Babel
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-uptex.mp
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-utf8-incl.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/area-utf8.mp
-%doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-docinfo.txt
 %doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-jis.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/bkmk-utf8.tex
 %doc %{_texmfdistdir}/doc/uptex/base/samples/box-euc.eps
@@ -277,3 +269,11 @@ uptex uptex - uptex.ini
 euptex euptex language.def *euptex.ini
 uplatex euptex language.dat *uplatex.ini
 EOF
+
+
+%changelog
+* Fri Aug 10 2012 Paulo Andrade <pcpa@mandriva.com.br> 20120810-1
++ Revision: 813790
+- Import texlive-uptex
+- Import texlive-uptex
+

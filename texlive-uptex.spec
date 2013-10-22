@@ -7,7 +7,7 @@
 Name:		texlive-uptex
 Epoch:		1
 Version:	1.11
-Release:	1
+Release:	2
 Summary:	Unicode version of pTeX
 Group:		Publishing
 URL:		http://tug.org/texlive
@@ -48,7 +48,6 @@ original LaTeX with \inputenc{utf8} and Babel
 
 #-----------------------------------------------------------------------
 %files
-%{_bindir}/convbkmk
 %{_texmfdistdir}/fonts/cmap/uptex/UTF8-UTF16
 %{_texmfdistdir}/fonts/tfm/uptex/jis/upgbm-h.tfm
 %{_texmfdistdir}/fonts/tfm/uptex/jis/upgbm-hq.tfm
@@ -262,10 +261,6 @@ original LaTeX with \inputenc{utf8} and Babel
 %build
 
 %install
-mkdir -p %{buildroot}%{_bindir}
-pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/uptex/convbkmk.rb convbkmk
-popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}

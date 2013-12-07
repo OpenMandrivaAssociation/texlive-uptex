@@ -7,7 +7,7 @@
 Name:		texlive-uptex
 Epoch:		1
 Version:	1.11
-Release:	4
+Release:	5
 Summary:	Unicode version of pTeX
 Group:		Publishing
 URL:		http://tug.org/texlive

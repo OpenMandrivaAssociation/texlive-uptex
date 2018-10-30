@@ -1,6 +1,6 @@
 Name:		texlive-uptex
 Version:	1.20
-Release:	2
+Release:	3
 Summary:	Unicode version of pTeX
 Group:		Publishing
 URL:		http://tug.org/texlive

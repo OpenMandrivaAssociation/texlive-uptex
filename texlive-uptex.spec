@@ -1,12 +1,12 @@
 Name:		texlive-uptex
-Version:	1.20
-Release:	3
+Version:	62464
+Release:	1
 Summary:	Unicode version of pTeX
 Group:		Publishing
 URL:		http://tug.org/texlive
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -31,20 +31,21 @@ original LaTeX with \inputenc{utf8} and Babel
 (Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
 %doc %{_texmfdistdir}/doc/upmendex
+%doc %{_texmfdistdir}/doc/man/man1/*
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 

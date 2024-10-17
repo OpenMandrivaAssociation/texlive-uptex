@@ -3,7 +3,7 @@ Version:	62464
 Release:	2
 Summary:	Unicode version of pTeX
 Group:		Publishing
-URL:		http://tug.org/texlive
+URL:		https://tug.org/texlive
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.r%{version}.tar.xz

@@ -1,54 +1,33 @@
-Name:		texlive-uptex
-Version:	62464
-Release:	2
+%global tl_name uptex
+%global tl_revision 77830
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Unicode version of pTeX
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/pkg/uptex
+License:	other-free
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/uptex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
-Requires(post):	texlive-tetex
-Requires:	texlive-ptex
-Requires:	texlive-hyph-utf8
-Requires:	texlive-adobemapping
-Requires:	texlive-convbkmk
-Requires:	texlive-ipaex
-Requires:	texlive-japanese
-Requires:	texlive-japanese-otf
-Requires:	texlive-uptex.bin
+BuildSystem:	texlive
+Requires:	texlive(cm)
+Requires:	texlive(etex)
+Requires:	texlive(hyphen-base)
+Requires:	texlive(knuth-lib)
+Requires:	texlive(plain)
+Requires:	texlive(ptex-base)
+Requires:	texlive(uptex-base)
+Requires:	texlive(uptex-fonts)
+Requires:	texlive(uptex.bin)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-upTeX is an extension of pTeX, using UTF-8 input and producing
-UTF-8 output. It was originally designed to improve support for
-Japanese, but is also useful for documents in Chinese and
-Korean. It can process Chinese simplified, Chinese traditional,
-Japanese, and Korean simultaneously, and can also process
-original LaTeX with \inputenc{utf8} and Babel
-(Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
+upTeX is an extension of pTeX, using UTF-8 input and producing UTF-8
+output. It was originally designed to improve support for Japanese, but
+is also useful for documents in Chinese and Korean. It can process
+Chinese simplified, Chinese traditional, Japanese, and Korean
+simultaneously, and can also process original LaTeX with \inputenc{utf8}
+and Babel (Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%doc %{_texmfdistdir}/doc/upmendex
-%doc %{_texmfdistdir}/doc/man/man1/*
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf-dist %{buildroot}%{_datadir}

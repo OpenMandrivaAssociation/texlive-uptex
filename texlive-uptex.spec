@@ -21,7 +21,8 @@ Requires:	texlive(ptex-base)
 Requires:	texlive(uptex-base)
 Requires:	texlive(uptex-fonts)
 Requires:	texlive(uptex.bin)
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 upTeX is an extension of pTeX, using UTF-8 input and producing UTF-8
@@ -31,3 +32,13 @@ Chinese simplified, Chinese traditional, Japanese, and Korean
 simultaneously, and can also process original LaTeX with \inputenc{utf8}
 and Babel (Latin/Cyrillic/Greek etc.) by switching its \kcatcode tables.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from uptex:
+KanjiMap uptex-@jaEmbed@@jaVariant@.map
+KanjiMap uptex-ko-@koEmbed@.map
+KanjiMap uptex-sc-@scEmbed@.map
+KanjiMap uptex-tc-@tcEmbed@.map
+TL_DROPIN_EOF
